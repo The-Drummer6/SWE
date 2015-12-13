@@ -29,6 +29,7 @@
         "src/app/providers.ts",
         "src/app/routes.ts",
         "src/app/footer.ts",
+        "src/artikelverwaltung/components/create_buch/create_buch.ts",
         "src/buchverwaltung/components/balkendiagramm_bewertungen/balkendiagramm_bewertungen.ts",
         "src/buchverwaltung/components/create_buch/create_buch.ts",
         "src/buchverwaltung/components/details_buch/details_buch.ts",

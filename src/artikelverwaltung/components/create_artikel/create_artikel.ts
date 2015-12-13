@@ -28,20 +28,20 @@ import {
 import {Response} from 'angular2/http';
 import {Router, CanActivate} from 'angular2/router';
 
-import BuecherService from '../../service/buecher_service';
-import Buch from '../../model/buch';
-import BuchValidator from '../validator/buch_validator';
+import BuecherService from '../../service/artikel_service';
+import Buch from '../../model/artikel';
+import BuchValidator from '../validator/artikel_validator';
 import {isAdmin} from '../../../iam/iam_service';
 import {log} from '../../../util/util';
 
 // Importieren des HTML-Templates als String.
 // Bei @Component({templateUrl: ...}) muesste man eine URI angeben
 // https://github.com/systemjs/plugin-text
-import template from './create_buch.html';
+import template from './create_artikel.html';
 
 
 @Component({
-    selector: 'create-buch',
+    selector: 'create-artikel',
     // Keine Zerlegung in Subkomponenten, weil das Control-Objekt der
     // Subkomponente im Konstruktor fuer die ControlGroup benoetigt wird
     template: template,
@@ -58,7 +58,7 @@ import template from './create_buch.html';
 // Function
 // true liefert
 @CanActivate(() => isAdmin())
-export default class CreateBuch implements OnInit {
+export default class CreateArtikel implements OnInit {
     form: ControlGroup;
     // Keine Vorbelegung bzw. der leere String, da es Placeholder gibt
     titel: Control = new Control('', BuchValidator.titel);
