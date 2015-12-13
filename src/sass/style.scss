@@ -1,0 +1,120 @@
+// Copyright (C) 2013 - 2015 Juergen Zimmermann, Hochschule Karlsruhe
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+$bluesky: #BED6F8;
+$red: #D91C0D;
+// $black: #000000;
+
+$background-color: $bluesky;
+$gradient: url(../img/gradientBlueSky.png);
+
+header {
+    background-color: $background-color;
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-image: $gradient;
+}
+
+nav {
+    background-color: $background-color;
+    // Gleiche Hoehe von nav und main: siehe
+    //    http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height
+    //    https://www.credera.com/blog/technology-insights/full-height-column-layout-with-bootstrap
+}
+
+// ----------------------------------------------------------
+// A n i m a t i o n e n
+// ----------------------------------------------------------
+$enter-leave-delay: 0.3s;
+$enter-leave-transition: $enter-leave-delay linear all;
+
+@mixin enter-leave() {  // ohne animation.css
+    -o-transition: $enter-leave-transition;
+    transition: $enter-leave-transition;
+    //transition-delay: @enter-leave-delay;
+}
+
+$enter-anim: fadeInRight;   // animation.css
+@mixin enter() {
+    animation: $enter-anim $enter-leave-delay;
+}
+
+$leave-anim: flipOutX;   // animation.css
+@mixin leave() {
+    //-webkit-animation: @leave-anim @enter-leave-delay;
+    //-moz-animation: @leave-anim @enter-leave-delay;
+    animation: $leave-anim $enter-leave-delay;
+}
+
+$min-opacity: 0;
+$max-opacity: 1;
+
+// Ereignis "enter" bei: ng-repeat, ng-include, ng-if, ng-view
+// Start der Animation
+.shop-anim.ng-enter {
+    //@include enter-leave;
+    @include enter;
+    opacity: $min-opacity;
+}
+// Ende der Animation
+.shop-anim.ng-enter.ng-enter-active {
+    opacity: $max-opacity;
+}
+
+// Ereignis "leave" bei: ng-repeat, ng-include, ng-if, ng-view
+// Start der Animation
+.shop-anim.ng-leave {
+    //@include enter-leave;
+    @include leave;
+    background: red;
+    opacity: $max-opacity;
+}
+// Ende der Animation
+.shop-anim.ng-leave.ng-leave-active {
+    opacity: $min-opacity;
+}
+
+$show-delay: 0.3s;
+$show-true-animation: bounceIn $show-delay;
+
+// Ereignis "hide-remove" bei ng-if bzw. ng-show (wird true) und ng-hide (wird false)
+// Start der Animation
+.shop-anim.ng-hide-remove {
+    //-webkit-animation: @show-true-animation;
+    //-moz-animation: @show-true-animation;
+    animation: $show-true-animation;
+    opacity: $min-opacity;
+}
+
+// Ende der Animation
+.shop-anim.ng-hide-remove.ng-hide-remove-active {
+    opacity: $max-opacity;
+}
+
+$show-false-animation: flipOutX $show-delay;
+
+// Ereignis "hide-add" bei ng-if bzw. ng-show (wird false) und ng-hide (wird true)
+// Start der Animation
+.shop-anim.ng-hide-add {
+    //-webkit-animation: @show-false-animation;
+    //-moz-animation: @show-false-animation;
+    animation: $show-false-animation;
+    opacity: $max-opacity;
+}
+// Ende der Animation
+.shop-anim.ng-hide-add.ng-hide-add-active {
+    opacity: $min-opacity;
+    background: red;
+}

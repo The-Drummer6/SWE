@@ -1,0 +1,13 @@
+{
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "classes": true,
+        "destructuring": true,
+        "forOf": true,
+        "modules": true,
+        "templateStrings": true
+    },
+    "rules": {
+    }
+}

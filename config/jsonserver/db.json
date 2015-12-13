@@ -1,0 +1,98 @@
+{
+  "buecher": [
+    {
+      "id": "00000001-0000-0000-0000-000000000001",
+      "titel": "Alpha",
+      "rating": 4,
+      "art": "GEBUNDEN",
+      "verlag": "OREILLY",
+      "schlagwoerter": [
+        "SCHNULZE"
+      ],
+      "preis": 11.1,
+      "rabatt": 0.011,
+      "datum": "2015-02-01"
+    },
+    {
+      "id": "00000001-0000-0000-0000-000000000002",
+      "titel": "Beta",
+      "rating": 2,
+      "art": "BROSCHIERT",
+      "verlag": "PACKT",
+      "schlagwoerter": [
+        "SCIENCE_FICTION"
+      ],
+      "preis": 22.2,
+      "rabatt": 0.022,
+      "datum": "2015-02-02"
+    },
+    {
+      "id": "00000001-0000-0000-0000-000000000003",
+      "titel": "Gamma",
+      "rating": 1,
+      "art": "GEBUNDEN",
+      "verlag": "PACKT",
+      "schlagwoerter": [
+        "SCHNULZE",
+        "SCIENCE_FICTION"
+      ],
+      "preis": 33.3,
+      "rabatt": 0.033,
+      "datum": "2015-02-03"
+    },
+    {
+      "id": "00000001-0000-0000-0000-000000000004",
+      "titel": "Delta",
+      "rating": 3,
+      "art": "BROSCHIERT",
+      "verlag": "OREILLY",
+      "schlagwoerter": [],
+      "preis": 44.4,
+      "rabatt": 0.044,
+      "datum": "2015-02-04"
+    },
+    {
+      "id": "00000001-0000-0000-0000-000000000005",
+      "titel": "Epsilon",
+      "rating": 2,
+      "art": "BROSCHIERT",
+      "verlag": "PACKT",
+      "schlagwoerter": [
+        "SCIENCE_FICTION"
+      ],
+      "preis": 55.5,
+      "rabatt": 0.055,
+      "datum": "2015-02-05"
+    }
+  ],
+  "buecherA": [
+    {
+      "id": "00000001-0000-0000-0000-000000000001",
+      "titel": "Alpha",
+      "rating": 4,
+      "art": "GEBUNDEN",
+      "verlag": "OREILLY",
+      "schlagwoerter": [
+        "SCHNULZE"
+      ],
+      "preis": 11.1,
+      "rabatt": 0.011,
+      "datum": "2015-02-01"
+    }
+  ],
+  "buecherB": [
+    {
+      "id": "00000001-0000-0000-0000-000000000002",
+      "titel": "Beta",
+      "rating": 2,
+      "art": "BROSCHIERT",
+      "verlag": "PACKT",
+      "schlagwoerter": [
+        "SCIENCE_FICTION"
+      ],
+      "preis": 22.2,
+      "rabatt": 0.022,
+      "datum": "2015-02-02"
+    }
+  ]
+}
