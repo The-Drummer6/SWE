@@ -1,20 +1,3 @@
-/*
- * Copyright (C) 2015 Juergen Zimmermann, Hochschule Karlsruhe
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 import {
     Component,
     FORM_DIRECTIVES,
@@ -28,17 +11,16 @@ import {
 import {Response} from 'angular2/http';
 import {Router, CanActivate} from 'angular2/router';
 
-import BuecherService from '../../service/artikel_service';
-import Buch from '../../model/artikel';
+import BuecherService from '../service/artikel_service';
+import Artikel from '../model/artikel';
 import BuchValidator from '../validator/artikel_validator';
-import {isAdmin} from '../../../iam/iam_service';
-import {log} from '../../../util/util';
+import {isAdmin} from '../../iam/iam_service';
+import {log} from '../../util/util';
 
 // Importieren des HTML-Templates als String.
 // Bei @Component({templateUrl: ...}) muesste man eine URI angeben
 // https://github.com/systemjs/plugin-text
 import template from './create_artikel.html';
-
 
 @Component({
     selector: 'create-artikel',
@@ -61,37 +43,46 @@ import template from './create_artikel.html';
 export default class CreateArtikel implements OnInit {
     form: ControlGroup;
     // Keine Vorbelegung bzw. der leere String, da es Placeholder gibt
-    titel: Control = new Control('', BuchValidator.titel);
-    art: string = 'GEBUNDEN';
+    bezeichnung: Control = new Control('', ArtikelValidator.bezeichnung);
+    //art: string = 'GEBUNDEN';
     // Varianten fuer Validierung:
     //    serverseitig mittels Request/Response
     //    clientseitig bei den Ereignissen keyup, change, ...
     // Ein Endbenutzer bewirkt staendig einen neuen Fehlerstatus
-    verlag: Control = new Control('', Validators.required);
-    schnulze: Control = new Control(false);
-    scienceFiction: Control = new Control(false);
     preis: Control = new Control('', Validators.required);
-    rabatt: Control = new Control('', Validators.required);
+    version: Control = new Control('', Validators.required);
+    bad: Control = new Control(false);
+    buero: Control = new Control(false);
+    diele: Control = new Control(false);
+    esszimmer: Control = new Control(false);
+    kinderzimmer: Control = new Control(false);
+    kueche: Control = new Control(false);
+    schlafzimmer: Control = new Control(false);
+    wohnzimmer: Control = new Control(false);
+   
 
     constructor(
         private _formBuilder: FormBuilder,
-        private _buecherService: BuecherService, private _router: Router) {
-        console.log('CreateBuch.constructor()');
+        private _artikelService: ArtikelService, private _router: Router) {
+        console.log('CreateArtikel.constructor()');
     }
-
     onInit(): void {
         this.form = this._formBuilder.group({
             // siehe ng-form-control innerhalb von @Component({template: `...`})
-            'titel': this.titel,
-            'verlag': this.verlag,
-            'schnulze': this.schnulze,
-            'scienceFiction': this.scienceFiction,
+            'bezeichnung': this.bezeichnung,
             'preis': this.preis,
-            'rabatt': this.rabatt
+            'version': this.version,
+            'bad': this.bad,
+            'buero': this.buero,
+            'diele': this.diele,
+            'esszimmer': this.esszimmer,
+            'kinderzimmer': this.kinderzimmer,
+            'kueche': this.kueche,
+            'schlafzimmer': this.schlafzimmer,
+            'wohnzimmer': this.wohnzimmer
         });
     }
-
-    @log
+     @log
     save(): boolean {
         // In einem Control oder in einer ControlGroup gibt es u.a. folgende
         // Properties
@@ -104,13 +95,13 @@ export default class CreateArtikel implements OnInit {
         if (!this.form.valid) {
             /* tslint:disable:max-line-length */
             console.log(
-                `valid=${this.titel.valid}, errorRequired=${this.titel.errors['required']}`);
+                `valid=${this.bezeichnung.valid}, errorRequired=${this.bezeichnung.errors['required']}`);
             /* tslint:enable:max-line-length */
             return false;
         }
 
-        const neuesBuch: Buch = Buch.fromForm(this.form.value, {art: this.art});
-        console.log('neuesBuch=', neuesBuch);
+        const neuerArtikel: Artikel = Artikel.fromForm(this.form.value);
+        console.log('neuerArtikel=', neuerArtikel);
 
         const success: () => void =
             (): void => { this._router.navigate(['Home']); };
@@ -119,7 +110,7 @@ export default class CreateArtikel implements OnInit {
             console.log(`response.text: ${response.text()}`);
         };
 
-        this._buecherService.save(neuesBuch, success, error);
+        this._artikelService.save(neuerArtikel, success, error);
 
         // damit das (Submit-) Ereignis konsumiert wird und nicht an
         // uebergeordnete Eltern-Komponenten propagiert wird bis zum Refresh
@@ -127,5 +118,5 @@ export default class CreateArtikel implements OnInit {
         return false;
     }
 
-    toString(): String { return 'CreateBuch'; }
+    toString(): String { return 'CreateArtikel'; }
 }
