@@ -11,9 +11,9 @@ import {
 import {Response} from 'angular2/http';
 import {Router, CanActivate} from 'angular2/router';
 
-import BuecherService from '../service/artikel_service';
+import ArtikelService from '../service/artikel_service';
 import Artikel from '../model/artikel';
-import BuchValidator from '../validator/artikel_validator';
+import ArtikelValidator from '../validator/artikel_validator';
 import {isAdmin} from '../../iam/iam_service';
 import {log} from '../../util/util';
 
