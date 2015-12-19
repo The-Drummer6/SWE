@@ -164,5 +164,5 @@ export default class ArtikelService {
     */
 }
 
-export const MOCK_OBJECTS_PROVIDER: Provider =
+export const ARTIKEL_SERVICE_PROVIDER: Provider =
     provide(ArtikelService, { useClass: ArtikelService });
