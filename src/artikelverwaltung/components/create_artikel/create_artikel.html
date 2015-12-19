@@ -1,0 +1,99 @@
+<h2>Neuen Artikel anlegen</h2>
+
+<form [ng-form-model]="form" (submit)="save()" class="form-horizontal" role="form">
+      
+    <div class="form-group" [class.has-error]="!bezeichnung.valid && bezeichnung.touched">
+        <label for="bezeichnungInput" class="col-sm-2 control-label">Bezeichnung *</label>
+        <div class="col-sm-10">
+            <input id="bezeichnungInput"
+                placeholder="Bezeichnung"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="bezeichnung"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!bezeichnung.valid && bezeichnung.touched">
+            <span class="help-block">
+                Die Bezeichnung muss mit einem Buchstaben oder Zahl beginnen!
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!preis.valid && preis.touched">
+        <label for="preisInput" class="col-sm-2 control-label">Preis *</label>
+        <div class="col-sm-10">
+            <input id="preisInput"
+                placeholder="Preis, z.B. 123.45"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="preis"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!preis.valid && preis.touched">
+            <span class="help-block">
+                Ein Preis muss eingegeben werden, z.B. 123.45
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group" [class.has-error]="!kategorie.valid && kategorie.touched">
+        <label class="col-sm-2 control-label">Kategorie</label>
+        <div class="col-sm-10">
+            <select class="form-control" [ng-form-control]="kategorie">
+                <option value="">Bitte Kategorie ausw&auml;hlen</option>
+                <option value="BAD">Bad</option>
+                <option value="BUERO">Buero</option>
+                <option value="DIELE">Diele</option>
+                <option value="ESSZIMMER">Esszimmer</option>
+                <option value="KINDERZIMMER">Kinderzimmer</option>
+                <option value="KUECHE">Kueche</option>
+                <option value="SCHLAFZIMMER">Schlafzimmer</option>
+                <option value="WOHNZIMMER">Wohnzimmer</option>
+           </select>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!kategorie.valid && kategorie.touched">
+            <span class="help-block">
+                Kategorie bitte angeben
+            </span>
+        </div>
+    </div>
+    
+    <div class="form-group" [class.has-error]="!rating.valid && rating.touched">
+        <label for="ratingInput" class="col-sm-2 control-label">Rating</label>
+        <div class="col-sm-10">
+            <input id="ratingInput"
+                placeholder="Zahl zwischen 0-5"
+                class="form-control"
+                autofocus
+                type="search"
+                [ng-form-control]="rating"/>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10" *ng-if="!rating.valid && rating.touched">
+            <span class="help-block">
+                Das Rating muss zwischen 0 und 5 liegen
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-10">
+            <label class="radio-inline">
+                <input type="radio" name="status" value="false" checked
+                       (click)="art = 'false'"> false 
+            </label>&nbsp;
+            <label class="radio-inline">
+                <input type="radio" name="status" value="true" 
+                       (click)="art = 'true'"> true
+            </label>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-default" [disabled]="!form.valid"><i class="fa fa-check"></i> &nbsp; Artikel anlegen</button>
+        </div>
+    </div>
+    
+</form>
