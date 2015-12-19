@@ -4,7 +4,7 @@ import {ChartDataSet, LinearChartData, CircularChartData, IChart } from 'chart/C
 
 import Artikel from '../model/artikel';
 import {IArtikelServer, IArtikelForm} from '../model/artikel';
-import {ChartService, SCHEME, SERVERNAME, PORT, BASE_PATH_BUECHER, isPresent,
+import {ChartService, SCHEME, SERVERNAME, PORT, BASE_PATH_ARTIKEL, isPresent,
         log, isEmpty, isBlank } from '../../util/util';
 
 
@@ -25,7 +25,7 @@ export default class ArtikelService {
     constructor( @Inject(ChartService) private _chartService: ChartService,
         @Inject(Http) private _http: Http, @Inject(SCHEME) scheme: string,
         @Inject(PORT) port: number) {
-        this._baseUriArtikel = `${scheme}:${SERVERNAME}:${port}${BASE_PATH_BUECHER}`;
+        this._baseUriArtikel = `${scheme}:${SERVERNAME}:${port}${BASE_PATH_ARTIKEL}`;
         console.log("ShopService.Konstruktoraufruf" + this._baseUriArtikel);
         this.artikelheader.append('Accept', 'application/json');
         this.artikelheader.append('Content-Type', 'application/json');

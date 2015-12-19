@@ -33,3 +33,4 @@ export const PORT_MOCK_PROVIDER: Provider =
 export const SERVERNAME: string = 'localhost';
 const BASE_PATH: string = '/shop/rest';
 export const BASE_PATH_BUECHER: string = `${BASE_PATH}/buecher`;
+export const BASE_PATH_ARTIKEL: string = `${BASE_PATH}/artikel`;
