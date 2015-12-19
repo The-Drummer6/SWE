@@ -21,6 +21,7 @@ import Home from './home';
 import SucheBuecher from '../buchverwaltung/components/suche_buecher/suche_buecher';
 import DetailsBuch from '../buchverwaltung/components/details_buch/details_buch';
 import CreateBuch from '../buchverwaltung/components/create_buch/create_buch';
+import CreateArtikel from '../artikelverwaltung/components/create_artikel/create_artikel';
 import UpdateBuch from '../buchverwaltung/components/update_buch/update_buch';
 /* tslint:disable:max-line-length */
 import BalkendiagrammBewertungen from '../buchverwaltung/components/balkendiagramm_bewertungen/balkendiagramm_bewertungen';
@@ -38,11 +39,13 @@ const APP_ROUTES: Array<RouteDefinition> = [
     {path: '/detailsBuch/:id', as: 'DetailsBuch', component: DetailsBuch},
     {path: '/updateBuch/:id', as: 'UpdateBuch', component: UpdateBuch},
     {path: '/createBuch', as: 'CreateBuch', component: CreateBuch},
+    {path: '/createArtikel', as: 'CreateArikel', component: CreateArtikel},
     {
       path: '/balkendiagramm',
       as: 'Balkendiagramm',
       component: BalkendiagrammBewertungen
     },
+    
     {
       path: '/liniendiagramm',
       as: 'Liniendiagramm',

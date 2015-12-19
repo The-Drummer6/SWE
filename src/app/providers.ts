@@ -19,9 +19,9 @@
 // '../buchverwaltung/service/buecher_service';
 // import {MOCK_SERVER_PROVIDER} from
 // '../buchverwaltung/service/mock/buecher_service_mock_server';
-import {
-    MOCK_OBJECTS_PROVIDER
-} from '../buchverwaltung/service/mock/buecher_service_mock_objects';
+//import {
+//    MOCK_OBJECTS_PROVIDER
+//} from '../buchverwaltung/service/mock/buecher_service_mock_objects';
 
 import {HTTP_PROVIDER, PORT_MOCK_PROVIDER} from '../util/util';
 // import {HTTPS_PROVIDER} from '../util/util';
@@ -30,7 +30,8 @@ import {HTTP_PROVIDER, PORT_MOCK_PROVIDER} from '../util/util';
 const APP_PROVIDERS: Array<any> = [
     // BUECHER_SERVICE_PROVIDER,
     // MOCK_SERVER_PROVIDER,
-    MOCK_OBJECTS_PROVIDER,
+    //MOCK_OBJECTS_PROVIDER,
+    ARTIKEL_SERVICE_PROVIDER,
 
     // HTTPS_PROVIDER,
     HTTP_PROVIDER,

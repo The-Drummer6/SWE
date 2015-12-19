@@ -18,9 +18,10 @@
 import IamService from '../iam/iam_service';
 import {ChartService} from '../util/util';
 import BuecherService from '../buchverwaltung/service/buecher_service';
+import ArtikelService from '../artikelverwaltung/service/artikel_service';
 /* tslint:disable:max-line-length */
-import BuecherServiceMockServer from '../buchverwaltung/service/mock/buecher_service_mock_server';
-import BuecherServiceMockObjects from '../buchverwaltung/service/mock/buecher_service_mock_objects';
+//import BuecherServiceMockServer from '../buchverwaltung/service/mock/buecher_service_mock_server';
+//import BuecherServiceMockObjects from '../buchverwaltung/service/mock/buecher_service_mock_objects';
 /* tslint:enable:max-line-length */
 
 const APP_INJECTABLES: Array<any> = [
@@ -29,8 +30,9 @@ const APP_INJECTABLES: Array<any> = [
     ChartService,
 
     BuecherService,
-    BuecherServiceMockServer,
-    BuecherServiceMockObjects,
+    ArtikelService
+  //  BuecherServiceMockServer,
+  //  BuecherServiceMockObjects,
 ];
 
 export default APP_INJECTABLES;

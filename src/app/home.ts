@@ -20,7 +20,7 @@ import {Component} from 'angular2/angular2';
 @Component({
     selector: 'home',
     template: `
-        <h2>Hallo!</h2>
+        <h2>Willkommen bei Schiffbruch</h2>
     `
 })
 export default class Home {
