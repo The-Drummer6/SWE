@@ -35,6 +35,9 @@ import IamService from '../iam/iam_service';
             <li *ng-if="isAdmin()"><a [router-link]="['CreateBuch']">
                 <i class="fa fa-book"></i> &nbsp; Neues Buch</a>
             </li>
+            <li *ng-if="isAdmin()"><a [router-link]="['CreateArtikel']">
+                <i class="fa fa-book"></i> &nbsp; Neuer Artikel</a>
+            </li>
             <li *ng-if="isAdmin()"><a [router-link]="['Balkendiagramm']">
                 <i class="fa fa-bar-chart"></i> &nbsp; Balkendiagramm</a>
             </li>
